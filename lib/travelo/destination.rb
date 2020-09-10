@@ -1,0 +1,2 @@
+class Travelo::Destination
+end
