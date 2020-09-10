@@ -1,6 +1,6 @@
-require "travelo/version"
+#environment file
+require_relative "travelo/version"
+require_relative "travelo/cli"
 
-module Travelo
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require "nokogiri"
+require "pry"
