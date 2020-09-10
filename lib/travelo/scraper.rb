@@ -1,4 +1,4 @@
-scraper.rb
+
 
   class Travelo::Scraper
 
@@ -12,4 +12,6 @@ scraper.rb
 
     end
 
+
+    
   end
