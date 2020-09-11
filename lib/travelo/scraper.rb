@@ -5,7 +5,8 @@ class Travelo::Scraper
 
         array_of_destinations = index_page.css("div.listicle-slide.listicle-slide-square.listicle-slide-image")
 
-        binding.pry
+        array_of_destinations.each do |destination_card|
+          binding.pry
     end
 
 
