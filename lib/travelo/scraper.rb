@@ -3,7 +3,7 @@
   class Travelo::Scraper
 
     def self.scrape_destinations
-        index_page = Nokogiri::HTML(open("https://travel.usnews.com/rankings/worlds-best-vacations/"))
+        index_page = Nokogiri::HTML(open("https://www.lonelyplanet.com/best-in-travel/countries"))
         binding.pry
     end
 
@@ -13,5 +13,5 @@
     end
 
 
-    
+
   end
