@@ -8,7 +8,7 @@ class Travelo::Scraper
         array_of_destinations.each do |destination_card|
           binding.pry
     end
-
+  end
 
     def self.scrape_activities(destination)
 
@@ -16,4 +16,4 @@ class Travelo::Scraper
 
 
 
-  end
+end
