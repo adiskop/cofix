@@ -53,12 +53,13 @@ class Travelo::CLI
     end
     if input == "y"
       #2nd scrape
+      Travelo::Scraper.scrape_activities(destination)
     else
     puts "you ended"
     end
   end
 
-  def list_review
+  def list_preview
     #if movie details have NOT been scraped,
     #scrape
   end
