@@ -6,14 +6,14 @@ class Travelo::CLI
     Travelo::Scraper.scrape_destinations
     #scrape the destinations - call to the scraper class
     #list top 50 destinations
-    list_review
+    list_destinations
     #ask for input
     #call another method
   end
 
 def list_destinations
-  Travelo::Review.all.each.with_index(1) do |destination, index|
-    puts "#{index}. #{destination.name}"
+  Travelo::Destination.all.each.with_index(1) do |destination, index|
+    puts "#{index}. #{destination.title}"
   end
 end
 

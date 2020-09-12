@@ -1,12 +1,18 @@
 class Travelo::Scraper
 
     def self.scrape_destinations
-        index_page = Nokogiri::HTML(open("https://www.goodhousekeeping.com/life/travel/g30335840/best-places-to-travel-2020/"))
+        index_page = Nokogiri::HTML(open("https://bigseventravel.com/category/coffee/"))
 
-        array_of_destinations = index_page.css("div.listicle-slide.listicle-slide-square.listicle-slide-image")
+        array_of_destinations = index_page.css("div.col-12.col-md-6")
 
         array_of_destinations.each do |destination_card|
-          binding.pry
+    attributes =  {
+        title: destination_card.css("h3.entry-title.h4.sm-h2.m-h1 a").text ,
+        url:  destination_card.css("h3.entry-title.h4.sm-h2.m-h1 a")[0].attributes['href'].value,
+        read_time: destination_card.css("div.entry-meta.entry-meta-small").text ,
+      }
+      destination = Travelo::Destination.new(attributes)
+    
     end
   end
 
