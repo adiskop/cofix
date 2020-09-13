@@ -47,13 +47,14 @@ class Travelo::CLI
   def want_more_info(destination)
     puts "Read more?"
     input = nil
-    until input == "Y" || input == "N"
+    until ["Y","YES","N","NO"].include?(input)
       puts "type Y or N"
       input = gets.strip.upcase
     end
-    if input == "y"
+    if input == "Y" || input == "YES"
       #2nd scrape
-      Travelo::Scraper.scrape_activities(destination)
+      Travelo::Scraper.scrape_reviews(destination)
+
     else
     puts "you ended"
     end
