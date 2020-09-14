@@ -10,7 +10,7 @@ class Travelo::CLI
     #list top 10 destinations
     list_destinations
     puts "Please select city you want to explore it's coffee shops, by choosing a number 1-10: "
-    get_destination_method    #asked for input and reported the title of destination
+    get_destination_method_in_loop_format    #asked for input and reported the title of destination
     #ask for input
     #call another method
   end
@@ -43,6 +43,22 @@ class Travelo::CLI
         get_destination_method    #recursion(calling the same method from inside the method)
       end
   end
+
+  def get_destination_method_in_loop_format
+    input = gets.strip
+    until input.to_i.between?(0,9) || input == "exit"
+      puts "Sorry! invalid input"
+    input = gets.strip
+  end
+  if input != "exit"
+   index =  input.to_i - 1
+    destination = @sorted_destinations[index]
+    puts "#{destination.title}:"
+    want_more_info(destination)
+    puts "Please select city you want to explore it's coffee shops, by choosing a number 1-10 or type 'exit' to Exit "
+    get_destination_method_in_loop_format
+  end
+end
 
   def want_more_info(destination)
     puts "Read more?"
