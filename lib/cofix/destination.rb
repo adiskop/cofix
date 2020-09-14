@@ -6,31 +6,25 @@ class Cofix::Destination
 @@all = []
 
   def initialize(att_hash)
-  #  @title = att_hash[:title]
-  #  @title = att_hash[:url]
-  #  @title = att_hash[:read_time]
-
     att_hash.each do |key, value|
       self.send("#{key}=", value)
     end
     @reviews = []
     self.save
-    end
+  end
 
-def save
-@@all << self
-self
-end
+  def save
+    @@all << self
+    self
+  end
 
-def self.all
-@@all
-end
+  def self.all
+    @@all
+  end
 
-def add_review(rev)
-  @reviews<<rev
-  rev.destination = self
-
-end
-
+  def add_review(rev)
+    @reviews<<rev
+    rev.destination = self
+  end
 
 end

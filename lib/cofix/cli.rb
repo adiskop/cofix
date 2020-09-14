@@ -56,7 +56,7 @@ end
       Cofix::Scraper.scrape_reviews(destination)
 
       destination.reviews.each do |review|
-        puts "Top Coffee Shop: #{review.quote}"
+        puts "Top Coffee Shop: #{review.best}"
         puts "Website: #{review.link}\n\n".colorize(:yellow)
       end
     else

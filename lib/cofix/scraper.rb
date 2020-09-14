@@ -28,7 +28,7 @@ class Cofix::Scraper
       #associate that review with this destination
       #ro.destination = destination_object
       #set any review attributes
-      ro.quote = review_page.css("h3")[0].children.text
+      ro.best = review_page.css("h3")[0].children.text
       ro.link = review_page.css("h3 a")[0].attributes['href'].value
 
       #add this review to destination.reviews
