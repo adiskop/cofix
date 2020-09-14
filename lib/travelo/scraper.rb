@@ -21,35 +21,22 @@ class Travelo::Scraper
     review_page = Nokogiri::HTML(open(destination_object.url))
     reviews = review_page.css("h3")  #array of list of 7 best coffees
 
-    reviews.each do |review_html|
+#    reviews.each do |review_html|
       #instantiate a new review
+      ro = Travelo::Review.new
       #ro= review object
-    ro = Travelo::Review.new
       #associate that review with this destination
-  #  ro.destination = destination_object
+      #ro.destination = destination_object
       #set any review attributes
-
- quote = review_page.css("h3")[0].children.text
- binding.pry
+      ro.quote = review_page.css("h3")[0].children.text
+      ro.link = review_page.css("h3 a")[0].attributes['href'].value
 
       #add this review to destination.reviews
-  #    destination_object.reviews << ro
+      #destination_object.reviews << ro
+      destination_object.add_review(ro)
 
-  destination_object.add_review(ro)
-
-#    previews[0...6].each do |preview|
-
-    #  best_of_city = {
-    #    name: review_page.css("h3")[0].children.text ,
-    #    url_b: review_page.css("h3 a")[0].attributes['href'].value ,
-    #  }
-#review = Travelo::Review.new(best_of_city)
-
+#    end
 
     end
-
-    end
-
-
 
 end

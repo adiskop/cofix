@@ -26,5 +26,11 @@ def self.all
 @@all
 end
 
+def add_review(rev)
+  @reviews<<rev
+  rev.destination = self  
+
+end
+
 
 end
