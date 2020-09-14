@@ -2,14 +2,14 @@ class Cofix::CLI
   attr_accessor :sorted_destinations
 
   def start
-    puts "Welcome to Cofix! A gem that list the best coffee shop, from a list of 10 popular cities in the US".colorize(:yellow)
-    puts "Where would you like to discover the top coffee shop today?"
+    puts "Welcome to Cofix! A gem that list the 7 best coffee shops, of 10 popular cities in the US, and the #1 shop later on".colorize(:blue)
+    puts "Where would you like to discover the top coffee shops today?".colorize(:light_white)
     Cofix::Scraper.scrape_destinations
     #scrape the destinations - call scraper class
     sort_destinations
     #list 10 destinations
     list_destinations
-    puts "Please select city you want to find its best coffee shop, by choosing a number from 1-10:"
+    puts "Please select city you want to find its best coffee shop, by choosing a number from 1-10:".colorize(:light_white)
     get_destination_method
   end
 
@@ -33,28 +33,29 @@ class Cofix::CLI
   if input != "exit"
    index =  input.to_i - 1
     destination = @sorted_destinations[index]
-    puts "#{destination.title}"
-    puts "#{destination.url}"
-    puts"#{destination.read_time}"
+    puts "- #{destination.title}"
+    puts "- Article Page: #{destination.url}".colorize(:yellow)
+    puts "- Read Time: #{destination.read_time}"
     want_more_info(destination)
-    puts "Please select city you want to explore it's coffee shops, by choosing a number 1-10 or type 'exit' to Exit ".colorize(:orange)
+    puts "Please select city you want to explore it's coffee shops, by choosing a number 1-10 or type 'exit' to Exit ".colorize(:light_white)
     get_destination_method
   end
 end
 
   def want_more_info(destination)
-    puts "Want to know its #1 best coffee shop?"
+    puts "Want to know its #1 BEST coffee shop?".colorize(:blue)
     input = nil
     until ["Y","YES","N","NO"].include?(input)
-      puts "type Y or N"
+      puts "Type Y or N".colorize(:light_white)
       input = gets.strip.upcase
     end
     if input == "Y" || input == "YES"
-      puts "...Program is searching\n".colorize(:pink)
+      puts "...Program is searching\n".colorize(:light_magenta)
       Cofix::Scraper.scrape_reviews(destination)
 
       destination.reviews.each do |review|
-        puts "#{review.quote} found in #{review.link}.\n\n"
+        puts "Top Coffee Shop: #{review.quote}"
+        puts "Website: #{review.link}\n\n".colorize(:yellow)
       end
     else
     puts "you ended"

@@ -7,7 +7,7 @@ class Cofix::Scraper
 
         array_of_destinations.each do |destination_card|
           attributes =  {
-        title: destination_card.css("h3.entry-title.h4.sm-h2.m-h1 a").text.gsub("7", "#1").gsub("Shops","Shop") ,
+        title: destination_card.css("h3.entry-title.h4.sm-h2.m-h1 a").text,
         url:  destination_card.css("h3.entry-title.h4.sm-h2.m-h1 a")[0].attributes['href'].value,
         read_time: destination_card.css("div.entry-meta.entry-meta-small").text ,
       }
