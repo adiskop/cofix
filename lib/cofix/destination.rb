@@ -1,4 +1,4 @@
-class Travelo::Destination
+class Cofix::Destination
 
   attr_accessor :title,:url,:read_time
   attr_reader :reviews
@@ -28,7 +28,7 @@ end
 
 def add_review(rev)
   @reviews<<rev
-  rev.destination = self  
+  rev.destination = self
 
 end
 

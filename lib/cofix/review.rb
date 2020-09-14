@@ -1,4 +1,4 @@
-class Travelo::Review
+class Cofix::Review
   attr_accessor :destination, :name, :link, :quote
 
   def initialize

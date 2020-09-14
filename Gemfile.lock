@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    travelo (0.1.0)
+    cofix (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -24,7 +24,7 @@ DEPENDENCIES
   nokogiri
   pry
   rake (~> 10.0)
-  travelo!
+  cofix!
 
 BUNDLED WITH
    2.0.1

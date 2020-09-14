@@ -1,10 +1,10 @@
-class Travelo::CLI
+class Cofix::CLI
   attr_accessor :sorted_destinations
 
   def start
-    puts "Welcome to Travelo! The app that takes you to a coffee journey in 10 US metropolises"
+    puts "Welcome to Cofix! The app that takes you to a coffee journey in 10 US metropolises"
     puts "Where would you like to discover coffee shops today?"
-    Travelo::Scraper.scrape_destinations
+    Cofix::Scraper.scrape_destinations
     sort_destinations
     #scrape the destinations - call to the scraper class
     #list top 10 destinations
@@ -16,7 +16,7 @@ class Travelo::CLI
   end
 
   def sort_destinations
-    @sorted_destinations = Travelo::Destination.all.sort_by{|destination| destination.title}
+    @sorted_destinations = Cofix::Destination.all.sort_by{|destination| destination.title}
   end
 
   def list_destinations
@@ -69,7 +69,7 @@ end
     end
     if input == "Y" || input == "YES"
       puts "...Fetching the reviews\n"
-      Travelo::Scraper.scrape_reviews(destination)
+      Cofix::Scraper.scrape_reviews(destination)
 
       destination.reviews.each do |review|
         puts "#{review.quote} found in #{review.link}.\n\n"

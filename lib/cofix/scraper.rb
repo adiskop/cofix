@@ -1,4 +1,4 @@
-class Travelo::Scraper
+class Cofix::Scraper
 
     def self.scrape_destinations
         index_page = Nokogiri::HTML(open("https://bigseventravel.com/category/coffee/"))
@@ -11,7 +11,7 @@ class Travelo::Scraper
         url:  destination_card.css("h3.entry-title.h4.sm-h2.m-h1 a")[0].attributes['href'].value,
         read_time: destination_card.css("div.entry-meta.entry-meta-small").text ,
       }
-      destination = Travelo::Destination.new(attributes)
+      destination = Cofix::Destination.new(attributes)
 
     end
   end
@@ -23,7 +23,7 @@ class Travelo::Scraper
 
 #    reviews.each do |review_html|
       #instantiate a new review
-      ro = Travelo::Review.new
+      ro = Cofix::Review.new
       #ro= review object
       #associate that review with this destination
       #ro.destination = destination_object
