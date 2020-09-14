@@ -16,24 +16,24 @@ class Cofix::Scraper
     end
   end
 
-    def self.scrape_reviews(destination_object)
+    def self.scrape_tops(destination_object)
 
-    review_page = Nokogiri::HTML(open(destination_object.url))
-    reviews = review_page.css("h3")  #array of list of 7 best coffees
+    top_page = Nokogiri::HTML(open(destination_object.url))
+    tops = top_page.css("h3")  #array of list of 7 best coffees
 
-#    reviews.each do |review_html|
-      #instantiate a new review
-      ro = Cofix::Review.new
-      #ro= review object
-      #associate that review with this destination
-      #ro.destination = destination_object
-      #set any review attributes
-      ro.best = review_page.css("h3")[0].children.text
-      ro.link = review_page.css("h3 a")[0].attributes['href'].value
 
-      #add this review to destination.reviews
-      #destination_object.reviews << ro
-      destination_object.add_review(ro)
+      #instantiate a new top
+      top_object = Cofix::Top.new
+      #top_object= top object
+      #associate that top with this destination
+      #top_object.destination = destination_object
+      #set any top attributes
+      top_object.best = top_page.css("h3")[0].children.text
+      top_object.link = top_page.css("h3 a")[0].attributes['href'].value
+
+      #add this top to destination.tops
+      #destination_object.tops << top_object
+      destination_object.add_top(top_object)
 
 #    end
 

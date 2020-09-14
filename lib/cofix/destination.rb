@@ -1,15 +1,15 @@
 class Cofix::Destination
 
   attr_accessor :title,:url,:read_time
-  attr_reader :reviews
+  attr_reader :tops
 
-@@all = []
+  @@all = []
 
   def initialize(att_hash)
     att_hash.each do |key, value|
       self.send("#{key}=", value)
     end
-    @reviews = []
+    @tops = []
     self.save
   end
 
@@ -22,9 +22,9 @@ class Cofix::Destination
     @@all
   end
 
-  def add_review(rev)
-    @reviews<<rev
-    rev.destination = self
+  def add_top(to)
+    @tops<<to
+    to.destination = self
   end
 
 end

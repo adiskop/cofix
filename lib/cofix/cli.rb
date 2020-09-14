@@ -53,18 +53,18 @@ end
     end
     if input == "Y" || input == "YES"
       puts "...Program is searching\n".colorize(:light_magenta)
-      Cofix::Scraper.scrape_reviews(destination)
+      Cofix::Scraper.scrape_tops(destination)
 
-      destination.reviews.each do |review|
-        puts "Top Coffee Shop: #{review.best}"
-        puts "Website: #{review.link}\n\n".colorize(:yellow)
+      destination.tops.each do |top|
+        puts "Top Coffee Shop: #{top.best}"
+        puts "Website: #{top.link}\n\n".colorize(:yellow)
       end
     else
     puts "you ended"
     end
   end
 
-  def list_preview
+  def list_top
     #if movie details have NOT been scraped,
     #scrape
   end
