@@ -52,9 +52,12 @@ class Travelo::CLI
       input = gets.strip.upcase
     end
     if input == "Y" || input == "YES"
-      #2nd scrape
+      puts "...Fetching the reviews\n"
       Travelo::Scraper.scrape_reviews(destination)
 
+      destination.reviews.each do |review|
+        puts "#{review.quote} found in #{review.link}.\n\n"
+      end
     else
     puts "you ended"
     end
