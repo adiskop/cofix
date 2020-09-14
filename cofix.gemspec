@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Adi Skop'"]
   spec.email         = ["'adiskop@gmail.com'"]
 
-  spec.summary       = "A gem that list the 30 world's best destinations by USNEWS"
-  spec.description   = "A gem that list the 30 world's best destinations by USNEWS"
+  spec.summary       = "A gem that list the best coffee shop from a list of 10 popular countries in the US"
+  spec.description   = "A gem that list the best coffee shop from a list of 10 popular countries in the US"
   spec.homepage      = "https://github.com/adiskop/cofix"
   spec.license       = "MIT"
 

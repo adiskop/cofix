@@ -2,7 +2,7 @@ class Cofix::CLI
   attr_accessor :sorted_destinations
 
   def start
-    puts "Welcome to Cofix! The app that takes you to a coffee journey in 10 US metropolises"
+    puts "Welcome to Cofix! A gem that list the best coffee shop from a list of 10 popular countries in the US"
     puts "Where would you like to discover coffee shops today?"
     Cofix::Scraper.scrape_destinations
     sort_destinations
