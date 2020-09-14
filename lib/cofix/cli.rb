@@ -2,14 +2,15 @@ class Cofix::CLI
   attr_accessor :sorted_destinations
 
   def start
-    puts "Welcome to Cofix! A gem that list the 7 best coffee shops, of 10 popular cities in the US, and the #1 shop later on".colorize(:blue)
+    puts "Welcome to Cofix! A gem that lists the 7 best coffee shops, of 10 popular cities in the US, and the #1 shop later on!".colorize(:blue)
     puts "Where would you like to discover the top coffee shops today?".colorize(:light_white)
     Cofix::Scraper.scrape_destinations
     #scrape the destinations - call scraper class
     sort_destinations
     #list 10 destinations
     list_destinations
-    puts "Please select city you want to find its best coffee shop, by choosing a number from 1-10:".colorize(:light_white)
+    puts "Please select the city whose coffee shops you want to explore by choosing a number
+between 1-10 or type 'exit' to Exit ".colorize(:light_white)
     get_destination_method
   end
 
@@ -37,7 +38,8 @@ class Cofix::CLI
     puts "- Article Page: #{destination.url}".colorize(:yellow)
     puts "- Read Time: #{destination.read_time}"
     want_more_info(destination)
-    puts "Please select city you want to explore it's coffee shops, by choosing a number 1-10 or type 'exit' to Exit ".colorize(:light_white)
+    puts "Please select the city whose coffee shops you want to explore by choosing a number
+between 1-10 or type 'exit' to Exit ".colorize(:light_white)
     get_destination_method
   end
 end
