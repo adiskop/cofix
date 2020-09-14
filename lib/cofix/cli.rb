@@ -2,7 +2,7 @@ class Cofix::CLI
   attr_accessor :sorted_destinations
 
   def start
-    puts "Welcome to Cofix! A gem that list the best coffee shop from a list of 10 popular countries in the US"
+    puts "Welcome to Cofix! A gem that list the best coffee shop from a list of 10 popular countries in the US".colorize(:yellow)
     puts "Where would you like to discover coffee shops today?"
     Cofix::Scraper.scrape_destinations
     sort_destinations
