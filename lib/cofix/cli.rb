@@ -5,14 +5,12 @@ class Cofix::CLI
     puts "Welcome to Cofix! A gem that list the best coffee shop, from a list of 10 popular cities in the US".colorize(:yellow)
     puts "Where would you like to discover the top coffee shop today?"
     Cofix::Scraper.scrape_destinations
+    #scrape the destinations - call scraper class
     sort_destinations
-    #scrape the destinations - call to the scraper class
     #list 10 destinations
     list_destinations
-    puts "Please select city you want to explore it's coffee shops, by choosing a number 1-10: "
-    get_destination_method_in_loop_format    #asked for input and reported the title of destination
-    #ask for input
-    #call another method
+    puts "Please select city you want to find its best coffee shop, by choosing a number from 1-10:"
+    get_destination_method
   end
 
   def sort_destinations
@@ -25,26 +23,8 @@ class Cofix::CLI
       end
   end
 
+# this method has a loop format, recursion = it calls itself
   def get_destination_method
-    input = gets.strip  #"A private war"  "exit"
-    index = input.to_i - 1
-      if index.between?(0,9)    #a string will be -1
-      destination = @sorted_destinations[index]
-      puts "#{destination.title}:"
-        #continue with our program
-        #find that destination
-        #2nd scrape
-        #list destination that corresponds to this number
-        want_more_info(destination)
-      elsif input == "exit"
-        #allow this method to end
-      else
-        puts "Sorry! invalid input"
-        get_destination_method    #recursion(calling the same method from inside the method)
-      end
-  end
-
-  def get_destination_method_in_loop_format
     input = gets.strip
     until input.to_i.between?(0,9) || input == "exit"
       puts "Sorry! invalid input"
@@ -55,8 +35,8 @@ class Cofix::CLI
     destination = @sorted_destinations[index]
     puts "#{destination.title}:"
     want_more_info(destination)
-    puts "Please select city you want to explore it's coffee shops, by choosing a number 1-10 or type 'exit' to Exit "
-    get_destination_method_in_loop_format
+    puts "Please select city you want to explore it's coffee shops, by choosing a number 1-10 or type 'exit' to Exit ".colorize(:orange)
+    get_destination_method
   end
 end
 
@@ -72,7 +52,7 @@ end
       Cofix::Scraper.scrape_reviews(destination)
 
       destination.reviews.each do |review|
-        puts "#{review.quote} found in #{review.link}.\n\n"
+        puts "#{review.quote} found in #{review.link}.\n\n".colorize(:pink)
       end
     else
     puts "you ended"
