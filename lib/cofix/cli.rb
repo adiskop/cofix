@@ -33,7 +33,9 @@ class Cofix::CLI
   if input != "exit"
    index =  input.to_i - 1
     destination = @sorted_destinations[index]
-    puts "#{destination.title}:"
+    puts "#{destination.title}"
+    puts "#{destination.url}"
+    puts"#{destination.read_time}"
     want_more_info(destination)
     puts "Please select city you want to explore it's coffee shops, by choosing a number 1-10 or type 'exit' to Exit ".colorize(:orange)
     get_destination_method
@@ -41,18 +43,18 @@ class Cofix::CLI
 end
 
   def want_more_info(destination)
-    puts "Read more?"
+    puts "Want to know its #1 best coffee shop?"
     input = nil
     until ["Y","YES","N","NO"].include?(input)
       puts "type Y or N"
       input = gets.strip.upcase
     end
     if input == "Y" || input == "YES"
-      puts "...Fetching the reviews\n"
+      puts "...Program is searching\n".colorize(:pink)
       Cofix::Scraper.scrape_reviews(destination)
 
       destination.reviews.each do |review|
-        puts "#{review.quote} found in #{review.link}.\n\n".colorize(:pink)
+        puts "#{review.quote} found in #{review.link}.\n\n"
       end
     else
     puts "you ended"
