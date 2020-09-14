@@ -1,8 +1,14 @@
 # Cofix
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/cofix`. To experiment with that code, run `bin/console` for an interactive prompt.
+Cofix gem is meant to present the user with 10 popular cities in the US,
+Let the user pick one from a list, and then introduce him to the best coffee shop in this city,
+as well as its personal website.
 
-TODO: Delete this and the text above, and describe your gem
+It could be used as a great, quick tool for somebody who loves traveling and coffee,
+who is in one of these cities and doesn't have much time to research the best coffee shops around.
+
+It will quickly give him this information,
+as well as the store's webpage for more information.   
 
 ## Installation
 
@@ -22,7 +28,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Cofix will present the user with a list of 10 popular cities in the US,
+from which he will have to choose - by typing in a number between 1-10
+Then he will be asked if he would like to see the chosen city's best coffee shop and its website
+by typing in YES/Y/NO/N.
 
 ## Development
 
