@@ -53,7 +53,13 @@ end
     end
     if input == "Y" || input == "YES"
       puts "...Program is searching\n".colorize(:light_magenta)
-      Cofix::Scraper.scrape_tops(destination)
+          #How to prevent repetition:
+            #if any of the attributes that get scraped the second time is nil -> then we should scrape.
+      if destination.tops == []   #meaning -> only if the array is empty - then we will go ahead and scrape
+            #the top destination. BUT if we already scraped it before ->dont's scrape and continue to line 64.
+
+        Cofix::Scraper.scrape_tops(destination)  #How to prevent repetition of this line??
+      end
 
       destination.tops.each do |top|
         puts "Top Coffee Shop: #{top.best}"
