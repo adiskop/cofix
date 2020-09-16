@@ -19,8 +19,11 @@ class Cofix::Scraper
     def self.scrape_tops(destination_object)
 
     top_page = Nokogiri::HTML(open(destination_object.url))
-    tops = top_page.css("h3")  #array of list of 7 best coffees
+    tops = top_page.css("h3")  #array of list of 7 #1 best coffees
 
+#Lets create object relationship of a DESTINATION has a Top
+#for that in the Destination class we have to add a "tops" attribute! and an empty @tops array!
+#and in the top class we need to add a "destination" attribute.
 
       #instantiate a new top
       top_object = Cofix::Top.new

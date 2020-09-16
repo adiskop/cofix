@@ -40,7 +40,7 @@ between 1-10 or type 'exit' to Exit ".colorize(:light_white)
     want_more_info(destination)
     puts "Please select the city whose coffee shops you want to explore by choosing a number
 between 1-10 or type 'exit' to Exit ".colorize(:light_white)
-    get_destination_method
+    get_destination_method  #recursion
   end
 end
 
