@@ -6,6 +6,10 @@ class Cofix::Destination
   @@all = []
 
   def initialize(att_hash)
+#Below each-send method - could have been replaced like this:    
+#@title = att_hash[:title]
+#@url = att_hash[:url]
+#@read_time = att_hash[:read_time]
     att_hash.each do |key, value|
       self.send("#{key}=", value)
     end
