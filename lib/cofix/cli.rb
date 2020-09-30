@@ -27,6 +27,7 @@ between 1-10 or type 'exit' to Exit ".colorize(:light_white)
 # this method has a loop format, recursion = it calls itself
   def get_destination_method
     input = gets.strip
+    #until their input is valid
     until input.to_i.between?(0,9) || input == "exit"
       puts "Sorry! invalid input"
     input = gets.strip
@@ -68,11 +69,6 @@ end
     else
     puts "you ended"
     end
-  end
-
-  def list_top
-    #if movie details have NOT been scraped,
-    #scrape
   end
 
 

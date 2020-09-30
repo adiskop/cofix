@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-require_relative "../lib/cofix"
+require_relative "../lib/cofix.rb"
 
 Cofix::CLI.new.start
